@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+    }
+    #btn {
+        position: fixed;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <video id="vid" autoplay loop muted playsinline>
+    <source src="./Carson.mp4" type="video/mp4">
+  </video>
+  <button id="btn" onclick="toggleMute()">🔇 Tap for sound</button>
+
+  <script>
+    function toggleMute() {
+      const vid = document.getElementById('vid');
+      const btn = document.getElementById('btn');
+      vid.muted = !vid.muted;
+      btn.textContent = vid.muted ? '🔇 Tap for sound' : '🔊 Mute';
+    }
+  </script>
+</body>
+</html>
